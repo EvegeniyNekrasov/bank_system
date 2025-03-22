@@ -5,7 +5,7 @@ TARGET = bank
 SRCDIR = src
 INCDIR = include
 
-SRC = $(SRCDIR)/main.c $(SRCDIR)/account.c
+SRC = $(SRCDIR)/main.c $(SRCDIR)/account.c $(SRCDIR)/file_io.c
 OBJ = $(SRC:.c=.o)
 
 all: $(TARGET)

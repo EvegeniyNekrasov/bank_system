@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "account.h"
+#include "file_io.h"
 
 void createAccount(tAccount accounts[], int *numAccounts) {
     int newAccountNumber;
@@ -22,8 +22,10 @@ void createAccount(tAccount accounts[], int *numAccounts) {
     printf("Enter account holder name: ");
     scanf(" %[^\n]", accounts[*numAccounts].name);
     accounts[*numAccounts].balance = 0.0;
-    printf("Account created successfully.\n");
     (*numAccounts)++;
+
+    saveAllAccounts(accounts, *numAccounts);
+    printf("Account created successfully.\n");
 }
 
 void deposit(tAccount accounts[], int numAccounts) {
@@ -42,6 +44,7 @@ void deposit(tAccount accounts[], int numAccounts) {
                 return;
             }
             accounts[i].balance += amount;
+            saveAllAccounts(accounts, numAccounts);
             printf("Deposit successful. New balance: %.2f\n", accounts[i].balance);
             return;
         }
@@ -57,7 +60,6 @@ void withdraw(tAccount accounts[], int numAccounts) {
         printf("Invalid input.\n");
         return;
     }
-
     for (int i = 0; i < numAccounts; i++) {
         if (accounts[i].accountNumber == accNum) {
             printf("Enter amount to withdraw: ");
@@ -69,6 +71,7 @@ void withdraw(tAccount accounts[], int numAccounts) {
                 printf("Insufficient funds.\n");
             } else {
                 accounts[i].balance -= amount;
+                saveAllAccounts(accounts, numAccounts);
                 printf("Withdraw successful. New balance: %.2f\n", accounts[i].balance);
             }
             return;

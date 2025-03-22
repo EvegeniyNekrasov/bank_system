@@ -30,5 +30,5 @@ build/
 
 # Otros archivos innecesarios
 *.tmp
-
+*.csv
 bank
