@@ -1,0 +1,34 @@
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Directorios de construcción (build)
+build/
+*.o
+*.obj
+*.so
+*.dylib
+*.a
+*.exe
+
+# Archivos temporales y binarios
+*.out
+*.log
+
+# Archivos de depuración
+*.dSYM/
+
+# Archivos de configuración de editores/IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Archivos de respaldo
+*_backup.*
+
+# Otros archivos innecesarios
+*.tmp
+
+bank
